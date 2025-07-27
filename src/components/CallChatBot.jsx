@@ -1,5 +1,5 @@
 import React from 'react'
-import ChatBot from './chatbot'
+import ChatBot from './ChatBot';
 import { StarBackground } from './StarBackground'
 import ThemeToggle from './ThemeToggle'
 
