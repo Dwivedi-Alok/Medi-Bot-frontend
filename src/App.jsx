@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Home from './pages/Home'
 import HeroPage from './pages/HeroPage'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CallChatBot from './components/CallChatBot';  // <- FIXED CASE
+import CallChatBot from './components/CallChatBot';
 
 
 function App() {
