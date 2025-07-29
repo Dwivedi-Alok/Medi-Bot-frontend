@@ -26,7 +26,7 @@ function ChatBot() {
     scrollToBottom();
   }, [message]);
   
-  const API_URI = "http://127.0.0.1:5000";
+  const API_URI = "https://kmkk30x9-5000.inc1.devtunnels.ms";
 
   const checkApiHealth = async () => {
     try {
