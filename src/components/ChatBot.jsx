@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Send, Bot, User, Sparkles, MessageCircle, Activity, AlertCircle, Loader2, RefreshCw } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function ChatBot() {
   const [input, setInput] = useState('');
@@ -25,7 +26,7 @@ function ChatBot() {
     scrollToBottom();
   }, [message]);
   
-  const API_URI = "https://medi-bot-backend.onrender.com";
+  const API_URI = "http://127.0.0.1:5000";
 
   const checkApiHealth = async () => {
     try {
@@ -145,7 +146,7 @@ function ChatBot() {
     const Icon = config.icon;
 
     return (
-      <div className="flex items-center space-x-2 bg-gray-800 px-3 py-1.5 rounded-full">
+      <div className="flex items-center space-x-2 bg- px-3 py-1.5 rounded-full">
         <span className={`w-2 h-2 rounded-full ${config.color} ${config.pulse}`}></span>
         <Icon className={`w-4 h-4 text-gray-300 ${apiStatus === 'checking' ? 'animate-spin' : ''}`} />
         <span className="text-xs text-gray-300 font-medium">{config.text}</span>
@@ -158,7 +159,7 @@ function ChatBot() {
       <div className="max-w-xs px-4 py-3 rounded-2xl bg-white shadow-sm border border-gray-100">
         <div className="flex items-center space-x-1">
           <div className="flex space-x-1">
-            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+            <div className="w-2 h-2 bg-grey-400 rounded-full animate-bounce"></div>
             <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
             <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
           </div>
@@ -174,10 +175,9 @@ function ChatBot() {
   }, []);
 
   return (
-    <div className="flex flex-col h-screen w-full">
-     
+    <div className="flex flex-col  h-screen w-full">
       <div className="flex justify-between items-center p-6 border-b border-gray-700 bg-black/50 backdrop-blur-sm">
-        <div className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <div className="p-2 bg-gradient-to-r from-gray-600 to-gray-800 rounded-lg">
             <Bot className="w-6 h-6 text-white" />
           </div>
@@ -185,8 +185,11 @@ function ChatBot() {
             <h2 className="text-xl font-bold text-white">Medi-Bot</h2>
             <p className="text-xs text-gray-400">Your AI Medical Assistant</p>
           </div>
-        </div>
+        </Link>
+        <div className='mx-10 '>
+
         <StatusIndicator />
+        </div>
       </div>
 
       {/* Messages Container */}
@@ -211,7 +214,7 @@ function ChatBot() {
                 {msg.sources && msg.sources.length > 0 && (
                   <div className="mt-2 pt-2 border-t border-gray-200">
                     <p className="text-xs text-gray-500 mb-1 font-semibold flex items-center gap-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 20l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 12V4m0 0L3 9m9-5l9 5" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 20l9-5-9-5-9 5 9 5z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 12V4m0 0L3 9m9-5l9 5" /></svg>
                       Sources
                     </p>
                     <ul className="flex flex-col gap-2">
@@ -295,7 +298,7 @@ function ChatBot() {
         </div>
       </div>
 
-      <style jsx>{`
+      <style >{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
